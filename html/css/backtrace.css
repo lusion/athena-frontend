@@ -1,0 +1,27 @@
+.backtrace {
+	padding: 10px 0 20px 0;
+}
+.backtrace ol {
+  margin: 0;
+}
+.backtrace .file {
+	padding-left: 10px;
+	border-left: 6px solid #2A2;
+}
+.backtrace .code {
+	font-family: monospace;
+	padding-left: 10px;
+	border-left: 6px solid #622;
+}
+.backtrace .code li {
+	white-space: pre;
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+.backtrace .code li.context-0 {
+	background-color: #EDD;
+}
+.backtrace .code li.context-1 {
+}
+
+.backtrace ol li { line-height: 5px; }

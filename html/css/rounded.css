@@ -1,0 +1,67 @@
+
+#head div.help-menu .search { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+#head div.help-menu .faq { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+#head div.main-menu ul li ul li:last-child a { -webkit-border-bottom-left-radius: 5px; -webkit-border-bottom-right-radius: 5px; }
+
+#head div.top a.button { -moz-border-radius-bottomleft: 2px; -moz-border-radius-bottomright: 2px; }
+#head div.top a.button { -webkit-border-bottom-left-radius: 2px; -webkit-border-bottom-right-radius: 2px; }
+
+.section h1.title { -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; }
+.section h1.title { -webkit-border-top-left-radius: 4px; -webkit-border-top-right-radius: 4px; }
+
+#head div.domain-menu ol li {  }
+#head div.domain-menu ol li.show.current, #head div.domain-menu ol li.show.current a { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+#head div.domain-menu ol { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+#head div.domain-menu ol.expanded li.show.current, #head div.domain-menu ol.expanded li.show.current a { -moz-border-radius-bottomleft: 0px; -moz-border-radius-bottomright: 0px; }
+#head div.domain-menu ol.expanded li.show.current, #head div.domain-menu ol.expanded li.show.current a { -webkit-border-bottom-left-radius: 0px; -webkit-border-bottom-right-radius: 0px; }
+
+#head div.domain-menu ol.expanded li.hide:last-child, #head div.domain-menu ol.expanded li.current:last-child a { -moz-border-radius-bottomleft: 3px; -moz-border-radius-bottomright: 3px; }
+#head div.domain-menu ol.expanded li.hide:last-child, #head div.domain-menu ol.expanded li.current:last-child a { -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-radius: 3px; }
+
+#head div.domain-menu ol.expanded li.hide.current a { -moz-border-radius-bottomleft: 0px; -moz-border-radius-bottomleft: 0px; }
+#head div.domain-menu ol.expanded li.hide.current a { -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-right-radius: 0px; }
+
+#head div.domain-menu ol.expanded li, #head div.domain-menu ol.expanded li a { }
+
+.column-side.usage { -moz-border-radius: 3px; -webkit-border-radius: 5px; }
+
+.dialog { -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+.dialog form { -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+.dialog .header { -moz-border-radius-topleft: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; }
+.dialog .footer { -moz-border-radius-bottomleft: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-radius: 3px; }
+
+.dialog .header .controls a { -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+.dialog form input { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+input.button-action { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+.section .container { -moz-border-radius-bottomleft: 4px; -moz-border-radius-bottomright: 4px; }
+.section .container { -webkit-border-bottom-left-radius: 4px; -webkit-border-bottom-right-radius: 4px; }
+
+.section table tr th:first-child { -moz-border-radius-topleft: 3px; -moz-border-radius-bottomleft: 3px; }
+.section table tr th:first-child { -webkit-border-bottom-left-radius: 3px; -webkit-border-top-left-radius: 3px; }
+.section table tr th:last-child { -moz-border-radius-topright: 3px; -moz-border-radius-bottomright: 3px; }
+.section table tr th:last-child { -webkit-border-bottom-right-radius: 3px; -webkit-border-top-right-radius: 3px; }
+
+.section table tr td:first-child { -moz-border-radius-topleft: 3px; -moz-border-radius-bottomleft: 3px; }
+.section table tr td:first-child { -webkit-border-bottom-left-radius: 3px; -webkit-border-top-left-radius: 3px; }
+.section table tr td:last-child { -moz-border-radius-topright: 3px; -moz-border-radius-bottomright: 3px; }
+.section table tr td:last-child { -webkit-border-bottom-right-radius: 3px; -webkit-border-top-right-radius: 3px; }
+
+.column-side.usage { -moz-border-radius: 3px; -webkit-border-radius: 5px; }
+
+div.block, div.block h3 { -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; }
+div.block, div.block h3 { -webkit-border-top-left-radius: 4px; -webkit-border-top-right-radius: 4px; }
+div.block h3 { font-weight: bold; padding-bottom: 10px; }
+
+div.block { -moz-border-radius-bottomleft: 4px; -moz-border-radius-bottomright: 4px; }
+div.block { -webkit-border-bottom-left-radius: 4px; -webkit-border-bottom-right-radius: 4px; }
+
+input.button-action { -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+.section.dns .dns-record-type { -moz-border-radius: 4px; -webkit-border-radius: 4px;  }
+.section.dns .dns-record-type h1 { -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; }
+.section.dns .dns-record-type h1 { -webkit-border-top-left-radius: 4px; -webkit-border-top-right-radius: 4px; }
+.section.dns .dns-record-type h1 a { -moz-border-radius: 2px; -webkit-border-radius: 2px; }

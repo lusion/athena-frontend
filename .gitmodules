@@ -1,0 +1,3 @@
+[submodule "free"]
+	path = free
+	url = git@github.com:qix/free.git

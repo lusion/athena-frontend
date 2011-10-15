@@ -1,0 +1,101 @@
+
+/* colours & styling */
+
+body { background: #e2e2e2; color: #ffffff; color: #333333; }
+
+a:link, a:active, a:visited { color: #0099cc }
+
+#head { /*-moz-box-shadow: 0 0 3px #999999; -webkit-box-shadow: 0 0 3px #999999;*/ background: #12161B url("../img/bg-tile-head.png") repeat-x top left; }
+
+#head div.help-menu { color: #333333; background: #f1f1f1; }
+#head div.help-menu h1 { color: #000000; border-bottom: 1px solid #cccccc; }
+#head div.help-menu h1 .close { float: right; font-size: 12px; color: #666666; }
+#head div.help-menu .search { background: #e6e6e6; border: 1px solid #dcdcdc; }
+#head div.help-menu .faq { background: #e6e6e6; border: 1px solid #dcdcdc; }
+
+#head div.domain-menu { color: #F0F2F5; /*text-shadow: -1px -1px 1px #000000;*/ }
+
+#head div.sub-menu { background: #ffffff; z-index: 2; position: relative; }
+#head div.sub-menu { -moz-box-shadow: 1px 0 3px #999999; -webkit-box-shadow: 1px 0 3px #999999; }
+#head div.sub-menu ul li a { color: #0099cc; text-decoration: none; }
+#head div.sub-menu ul li a:hover {  }
+#head div.sub-menu ul li ul li a { background: #ffffff; -moz-box-shadow: 0 1px 2px #cccccc; -webkit-box-shadow: 0 1px 2px #cccccc; }
+#head div.sub-menu ul li ul li a:hover { text-decoration: underline; }
+
+#head div.sub-menu ul li.hover a {  }
+
+#head div.top h1 { font-size: 25px; font-weight: bold; font-style: italic; padding: 20px 0 10px 0; }
+#head div.top h1 a { color: #E53D32; text-shadow: -1px -1px 1px #13161A; }
+#head div.top a.button { /*background: transparent url("../img/bg-tile-highlight-light.png") repeat-x top left;*/ }
+#head div.top a.button { margin-left: 10px; font-size: 11px; }
+#head div.top a.button.help-button { background-color: #f1f1f1; text-decoration: none; color: #000000; text-shadow: -1px -1px 1px #efefef; }
+#head div.top a.button.logout-button { background: #E53D32 url("../img/bg-tile-button.png") repeat-x top left; text-decoration: none; color: #ffffff; text-shadow: -1px -1px 1px #89160F; }
+#head div.top span.balance { background: #333333; color: #ffffff; font-size: 12px; padding: 5px; }
+
+#main { border-top: 1px solid #ffffff; background: #f0f0f0; }
+
+#foot { color: #999999; }
+#foot a { color: #999999; text-decoration: underline; }
+
+input.button-action { cursor: pointer; background: #0099CC /*url("../img/bg-tile-highlight-light.png") repeat-x top left*/; color: #ffffff; text-shadow: -1px -1px 1px #0099CC; font-weight: bold; padding: 5px; font-size: 11px; border: 1px solid #0099CC; }
+input.button-action.action-add { background: #E53D32 url("../img/bg-tile-button.png") repeat-x top left; border-color: #E53D32; text-shadow: -1px -1px 1px #E53D32; }
+input.button-action.action-plain { background: #666666 /*url("../img/bg-tile-highlight-light.png") repeat-x top left*/; border-color: #666666; text-shadow: -1px -1px 1px #666666; }
+
+.section h1.title { background: #12161B /*url("../img/bg-tile-highlight-light.png") repeat-x top left*/; color: #ffffff; padding: 15px; font-size: 17px; font-weight: bold; text-shadow: -1px -1px 1px #0B0B0B; }
+.section h1.title { -moz-box-shadow: 0 0 3px #999999; }
+.section h1.title { -webkit-box-shadow: 0 0 3px #999999; border-bottom: 1px solid #000000; }
+
+.section h1.title .plain { font-weight: normal; }
+.section h1.title input { float: right; margin: -3px 0 0 0; }
+
+.section .container { background: #f4f4f4 url("../img/bg-tile-section.png") repeat-x bottom left; color: #333333; padding: 15px; font-size: 13px; line-height: 1.3em; }
+.section .container { -moz-box-shadow: 0 0 3px #999999; }
+.section .container { -webkit-box-shadow: 0 0 3px #999999; }
+.section .container h1 { color: #000000; border-bottom: 1px dotted #dddddd; padding: 0 0 4px 0;  }
+
+.section table tr th { padding: 7px 0 7px 0; background: #414A4D url("../img/bg-tile-shadow.png") repeat-x center left; color: #ffffff; font-size: 12px; }
+.section table tr td { padding: 5px 0 5px 0; border-bottom: 1px solid #efefef; background: #f1f1f1; font-size: 12px; }
+.section table tr td.checkbox input { vertical-align: bottom; }
+.section table tr td.options a { margin-right: 20px; }
+.section table tr td.options a:last-child { margin-right: 0; }
+
+.section table tr.alt td { background-color: #ffffff; }
+
+
+.section .menu { margin-bottom: 10px; }
+
+.section.login .container { background: #ffffff; }
+
+.column-side.usage { margin-top: 20px; background: #e6e6e6; border: 1px solid #cdcdcd; }
+
+
+table#vanilla-exception { width: 100%; border-collapse: collapse; border: none; }
+table#vanilla-exception thead tr td { text-align: left; font-weight: bold; background: #efefef; font-size: 12px; padding: 5px; color: #000000; }
+table#vanilla-exception thead tr td.file { width: 200px; }
+
+table#vanilla-exception tbody tr td { padding: 5px; color: #000000; }
+table#vanilla-exception tbody tr td.file { font-size: 12px; }
+table#vanilla-exception tbody tr td.error { font-size: 12px; }
+
+table#vanilla-exception tbody tr td table.snippet { border-collapse: collapse; border: none; width: 100%; }
+table#vanilla-exception tbody tr td table.snippet tr td { padding: 1px 5px 1px 5px; font-size: 10px; font-family: monospace; background: #eaeaea; color: #000000; }
+table#vanilla-exception tbody tr td table.snippet tr td.line { width: 30px; text-align: right; color: #999999; }
+table#vanilla-exception tbody tr td table.snippet tr.alt td { background: #efefef; }
+table#vanilla-exception tbody tr td table.snippet tr.highlight td { font-weight: bold; background: red; color: #ffffff; }
+
+.dialog { background: #ffffff; -moz-box-shadow: 0px 0px 3px #000000; -webkit-box-shadow: 0px 0px 3px #000000; }
+
+.dialog .header { background: #12161B; color: #ffffff; text-shadow: -1px -1px 1px #0B0B0B; }
+
+.dialog .content { }
+
+.dialog .header .controls a { background: #E53D32; color: #ffffff; text-shadow: none; }
+
+.dialog input[type="submit"] { -moz-box-shadow: 0px 0px 3px #000000; -webkit-box-shadow: 0px 0px 3px #000000; }
+
+.overview .website { background: transparent url("../img/overview-icon-website.png") no-repeat bottom left; }
+.overview .email { background: transparent url("../img/overview-icon-email.png") no-repeat bottom left; }
+.overview .database { background: transparent url("../img/overview-icon-database.png") no-repeat bottom left; }
+.overview .installers { background: transparent url("../img/overview-icon-config.png") no-repeat bottom left; }
+
+#json-wrap div.loading { padding: 120px 0 80px 0; text-align: center; background: transparent url("../img/loading-big.gif") no-repeat 50% 30px ; font-size: 11px; color: #666666; text-transform: uppercase; }

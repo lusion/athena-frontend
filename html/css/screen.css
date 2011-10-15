@@ -1,0 +1,266 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit;
+font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+cite { font-style: normal }
+label { cursor: pointer }
+/* remember to define focus styles! */
+:focus { outline: 0; }
+body { line-height: 1; color: black; background: white; }
+ol, ul { list-style: none; }
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: " "; }
+blockquote, q { quotes: "" ""; }
+
+h1 { font-size: 138.5% }
+h2 { font-size: 123.1% }
+h3 { font-size: 108% }
+fieldset legend { font-size: 108%; display: block }
+
+.clear { clear: both; line-height: 0; font-size: 0; margin: 0; padding: 0; height: 0; }
+
+p { margin: 0 0 1em 0 }
+ol, ul { margin: 0 0 1em 2em }
+ol li { list-style: decimal outside; }
+ul li { list-style: disc outside; }
+
+body { font-family: Arial,Helvetica,Verdana,sans-serif; }
+
+#page { min-height: 800px; text-align: center; }
+
+#head { }
+#main { padding-bottom: 30px; }
+#foot { padding: 20px 0 20px 0; font-size: 11px; }
+
+#head .main-menu .wrap, #main .wrap, #foot .wrap { text-align: left; margin: 0 auto; max-width: 960px; }
+#head .branding-image.wrap { padding-right: 28px; }
+
+#head div.help-menu { text-align: left; padding: 15px 0 20px 0; }
+#head div.help-menu h1 { font-size: 16px; font-weight: bold; padding-bottom: 10px; margin-bottom: 20px; }
+#head div.help-menu .topics { width: 600px; float: left; }
+#head div.help-menu .block { float: left; width: 200px; padding-bottom: 20px; }
+#head div.help-menu .block h3 { font-size: 14px; font-weight: bold; padding-bottom: 5px; }
+#head div.help-menu .block ol { margin: 0 0 10px 0; }
+#head div.help-menu .block ol li { list-style: none; font-size: 12px; }
+#head div.help-menu .block ol li a { }
+#head div.help-menu .search { padding: 10px; margin-bottom: 20px; }
+#head div.help-menu .search input[type="text"] { width: 460px; }
+#head div.help-menu .search input[type="submit"] { width: 100px; }
+#head div.help-menu .faq { width: 300px; float: right; padding: 10px; }
+#head div.help-menu .faq h2 { font-size: 16px; padding-bottom: 10px; }
+#head div.help-menu .faq ul { margin: 0 0 10px 20px; }
+#head div.help-menu .faq ul li { margin: 0 0 10px 0; font-size: 12px; }
+
+#head div.branding-tile { background-position: top left; background-repeat: repeat-x; height: 100px; }
+#head div.branding-image { background-position: top left; background-repeat: no-repeat; height: 100px; }
+
+#head div.top { }
+#head div.top h1 a { text-decoration: none; font-weight: bold; }
+#head div.top a.help-button { float: right; position: relative; display: block; padding: 8px 10px 8px 10px; }
+#head div.top a.logout-button { float: right; position: relative; display: block; padding: 8px 10px 8px 10px; }
+#head div.top span.balance { position: relative; top: 0; float: right; margin-right: 300px; }
+
+#head div.top div.logo h1 a { display: block; width: 300px; height: 50px; float: left; }
+
+#head div.main-menu ul#domain-dropdown { float: left; list-style: none; display: block; margin: 0; padding: 0; position: relative; }
+#head div.main-menu ul#domain-dropdown li { display: block; list-style: none; float: left; }
+#head div.main-menu ul#domain-dropdown li a { display: block; line-height: 45px; vertical-align: middle; font-size: 12px; }
+#head div.main-menu ul#domain-dropdown li a span { padding: 0 10px; }
+#head div.main-menu ul#domain-dropdown li ul li { width: 170px; margin: 0; }
+#head div.main-menu ul#domain-dropdown li ul li a { padding: 0 10px; }
+#head div.main-menu ul#domain-dropdown li ul li a span { padding: 0 8px; }
+#head div.main-menu ul#domain-dropdown li { margin-left: 0; }
+#head div.main-menu ul#domain-dropdown li { display: block; list-style: none; margin: 0 30px 0 0; padding: 0; float: left; position: relative; }
+#head div.main-menu ul#domain-dropdown li a { display: block; }
+#head div.main-menu ul#domain-dropdown li ul { display: none; position: absolute; left: 0; margin: 0; padding: 0; }
+#head div.main-menu ul#domain-dropdown li ul li { float: none; }
+#head div.main-menu ul#domain-dropdown li ul li span { display: block; padding: 0; }
+#head div.main-menu ul#domain-dropdown li ul li a { display: block; }
+#head div.main-menu ul#domain-dropdown ul ul { top: 0; }
+
+#head div.domain-menu { position: relative; font-size: 16px; }
+
+#head div.domain-menu ol { top: 18px; right: 0; width: 250px; overflow: hidden; margin: 0; padding: 0; z-index: 1003; position: absolute; }
+#head div.domain-menu ol li { overflow: hidden; margin: 0; padding: 0; }
+#head div.domain-menu ol li.hide { display: none; }
+#head div.domain-menu ol li.show { display: block; overflow: visible; }
+
+#head div.domain-menu ol li a { display: block; padding: 0px 40px 0 10px; margin: 0; text-decoration: none; line-height: 1.9em; }
+#head div.domain-menu ol.expanded li.hide { display: block; }
+
+
+.overview div.block { font-size: 12px; float: left; width: 190px; height: 160px; margin-right: 13px; margin-bottom: 13px; }
+.overview div.block h3 { font-weight: bold; padding-bottom: 10px; }
+.overview div.block ol { margin: 0; }
+.overview div.block ol li { list-style: none; }
+
+.account div.block { font-size: 12px; margin-right: 13px; margin-bottom: 13px; }
+.account div.block h3 { font-weight: bold; padding-bottom: 10px; }
+.account div.block ol { margin: 0; }
+.account div.block ol li { list-style: none; }
+
+.section { padding-top: 20px; text-align: left; }
+.section table { width: 100%; margin-bottom: 10px; }
+.section table tr .checkbox { width: 30px; text-align: center; }
+.section table tr th { font-weight: bold; line-height: 30px; padding: 0; }
+.section table tr td { padding: 3px 0 3px 0; }
+
+.section.login { margin: 0 auto; width: 300px; }
+
+.section.usage { padding-top: 0;  }
+
+.section .menu ol { margin: 0; padding: 0; }
+.section .menu ol li { list-style: none; }
+.section .menu ol li a { display: block; font-size: 12px; padding: 20px; }
+
+.columns { }
+.columns .column.column-main { width: 640px; float: left; }
+.columns .column.column-side { width: 300px; float: right; }
+
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+
+#dialogs {}
+
+/***
+ * Dialog layout
+ **/
+.dialog { font-size: 12px; margin: 0 auto; z-index: 1003; }
+.dialog { position: absolute; top: 100px; left: 100px; width: 400px; }
+.dialog .header { cursor: move; padding: 0 10px; line-height: 35px; text-align: left; }
+.dialog .content { margin: 0; padding: 4px 8px 0 8px; }
+.dialog .footer { padding: 8px; text-align: left; }
+.dialog .footer .button-action { margin-left: 5px; }
+
+fieldset { margin: 0; text-align: left; }
+fieldset p { margin: 0 }
+
+fieldset label { display: block; font-size: 0.9em; font-weight: bold; margin-top: 3px; padding: 2px 0 2px 2px; }
+
+fieldset .checkbox { line-height: 22px; vertical-align: middle; }
+fieldset .checkbox input { padding: 0; margin: 0; }
+fieldset .checkbox label { display: inline; vertical-align: middle; font-weight: normal; padding: 0; margin: 1px 0 0 0; }
+
+fieldset ol { margin: 0; padding: 0 0 0 0; list-style: none; }
+fieldset ol li { margin: 0; padding: 0; list-style: none }
+fieldset li.last { padding-bottom: 0.5em }
+fieldset ol, fieldset.simple p { margin: 0; }
+fieldset input[type="submit"] { margin-bottom: 0.8em }
+fieldset ol, fieldset.vertical ol li { margin-bottom: 0 }
+fieldset ol li:last-child { border-bottom: none }
+
+fieldset select, fieldset input, fieldset textarea { padding: 3px; border: 1px solid #cccccc; font-size: 11px; }
+fieldset input, fieldset textarea { width: 180px; }
+fieldset input.button-action, fieldset input.checkbox { width: auto; }
+fieldset input.button-action { margin: 8px 0; }
+fieldset a.action-secondary { margin-left: 5px; text-decoration: none; font-size: 0.9em; }
+
+.dialog a.help { width: 16px; height: 16px; cursor: help; display: inline-block; vertical-align: middle; line-height: 22px; background: url("/src/img/tip.png"); }
+
+.dialog .header .controls { float: right; line-height: 35px; display: block; }
+.dialog .header .controls a { text-decoration: none; vertical-align: middle; text-align: center; display: inline-block; text-decoration: none; }
+
+.dialog li { padding: 0; }
+.dialog span.domain-username input[type="text"] { width: 100px; }
+.dialog .errors { color: red; }
+.dialog .errors ol { border: 1px solid #f00; background-color: #fdd; padding: 4px; margin: 0 0 5px 0; }
+.dialog .errors ol li { list-style: none; }
+
+.dialog label { }
+.dialog table.layout td.right, .dialog table.layout th.right { padding-left: 3px; }
+.dialog table.layout td {vertical-align: middle; }
+.dialog li.automatic a { text-decoration: none; }
+
+.dialog .automatic .preview { padding: 4px 0 2px 2px; opacity: 0.7; }
+
+/* skeleton page */
+#skeleton-page {
+  padding: 50px 10px;
+}
+#skeleton-page h1 {
+  font-weight: bold;
+}
+
+#skeleton-page p {
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+#skeleton-page .step {
+  width: 280px;
+  border: 2px solid #DDD;
+  float: left;
+  margin: 10px;
+}
+#skeleton-page .step h2 {
+  font-size: 13px;
+  line-height: 35px;
+  text-align: center;
+}
+
+/* special sections */
+.section.file-manager .container { padding: 0; }
+
+.section h1.title { padding: 0 15px; }
+.section h1 .buttons { float: right; }
+.section h1 .buttons input { vertical-align: middle; }
+.section h1.title .quota { font-size: 11px; opacity: 0.8; margin-left: 10px; }
+
+input.button-action { cursor: pointer; padding: 5px; font-size: 11px; }
+
+#lightbox-overlay { z-index: 500; opacity: 0.6; background-color: #000; display: none; position: absolute; left: 0; top: 0; }
+
+.section.dns th { text-align: left; }
+.section.dns tr.add-row td { text-align: right; }
+.section.dns tr td.ttl { width: 80px; text-align: right; }
+.section.dns tr td.value input, .section.dns tr td.value select { width: 100%; margin: 0; }
+.section.dns tr.add-template td { display: none; }
+.section.dns table.add-template { display: none; }
+.section.dns td, .section.dns input[type="text"] { font-size: 12px; }
+.section.dns table.mail tr.mail-provider td { }
+.section.dns table.mail tr.mail-provider td span { display: block; }
+.section.dns table.mail tr.mail-provider td span label { }
+.section.dns table.mail tbody.mail-provider-settings { display: table-row-group; }
+.section.dns table.mail td.zone { font-weight: bold; }
+.section.dns table tr td.for-zone { text-align: right; width: 80px; padding-right: 10px; }
+.section.dns table tr td.ttl { padding-left: 10px; width: 50px; text-align: left; }
+.section.dns table tr td.ttl input { width: 50px; text-align: right; }
+.section.dns table tr td.del { text-align: center; }
+.section.dns table tr td.del a { text-decoration: none; font-weight: bold; }
+.section.dns .dns-record-type { background: #ffffff; margin-bottom: 10px; text-align: center; padding: 0 0 10px 0; }
+.section.dns .dns-record-type h1 { margin: 0 0 10px 0; padding: 15px 15px 15px 15px; text-align: left; font-size: 15px; }
+.section.dns .dns-record-type h1 a { float: right; margin-top: -5px; }
+.section.dns .dns-record-type table { text-align: left; width: 95%; margin: 0; border-collapse: separate; border-spacing: 0; }
+.section.dns .dns-record-type table tr td { margin: 0; }
+.section.dns .dns-record-type table tr td:first-child { padding-left: 3px; }
+.section.dns .dns-record-type table tr td:last-child { padding-right: 3px; }
+.section.dns .dns-record-type table tr:first-child td { padding-top: 3px; }
+.section.dns .dns-record-type table tr:last-child td { padding-bottom: 3px; }
+.section.dns .dns-record-type table.record { background: #efefef; margin: 0 auto 10px auto; padding: 3px; }
+.section.dns .dns-record-type table.record tr.add-row td { margin-bottom: 10px; }
+.section.dns .dns-record-type table.record-controls { margin: 0px auto 10px auto; padding-bottom: 10px;  }
+.section.dns table tr.split td { padding: 10px 0 10px 0; }
+
+.pager { padding-bottom: 20px; }
+.pager ul { margin-left: 0; }
+.pager ul li { list-style: none; float: left; }
+.pager ul li a { padding: 5px; text-decoration: none; }
