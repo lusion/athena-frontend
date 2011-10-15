@@ -6,10 +6,10 @@ if ($site = Site::current()) {
   if (count($sites) == 1) {
     print '<li class="show current only"><a href="http://www.'.$site->domain.'" target="_blank">'.$site->domain.'</a></li>';
   }else{
-    print '<li class="show current"><a href="/sites/'.$site->domain.'">'.$site->domain.'</a></li>';
+    print '<li class="show current"><a href="/site/'.$site->domain.'">'.$site->domain.'</a></li>';
     foreach ($sites as $otherSite) {
       if ($site == $otherSite) continue;
-      print '<li class="hide"><a href="/sites/'.$otherSite->domain.'">'.$otherSite->domain.'</a></li>';
+      print '<li class="hide"><a href="/site/'.$otherSite->domain.'">'.$otherSite->domain.'</a></li>';
     }
   }
   print '</ol>';

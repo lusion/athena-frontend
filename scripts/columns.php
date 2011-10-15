@@ -100,20 +100,18 @@ foreach ($SQL->querySelect('SHOW TABLES') as $table) {
   }
   $code .= "\n  );\n";
   
-  if (file_exists('lib/'.$table.'.php')) $filename = "lib/$table.php";
-  elseif (file_exists("lib/$table/$table.php")) $filename = "lib/$table/$table.php";
-  else{
+  if (!$path = Autoload::findPath($table)) {
     print " * Could not find file\n";
     continue;
   }
 
-  $contents = file_get_contents($filename);
+  $contents = file_get_contents($path);
   $replaced = preg_replace('/'."\n".'\s*static\s*\$COLUMNS[^;]*;'.".*\n".'/', "\n$code", $contents);
 
   if ($replaced != $contents) {
     if (columns_mode == 'write') {
       print " * Changes made\n";
-      file_put_contents($filename, $replaced);
+      file_put_contents($path, $replaced);
     }elseif (columns_mode == 'test') {
       $errors[] = "`$table` does not match";
     }

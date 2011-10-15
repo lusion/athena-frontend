@@ -5,5 +5,12 @@ require __DIR__.'/../init.php';
 $host = explode('.', $_SERVER['HTTP_HOST']);
 define('account_username', $host[0]);
 
+// Check the current session
+Session::load();
+
+if ($site = Site::load(Session::get('site-id'))) {
+  $site->makeActive();
+}
+
 // Load the view
 View::render(Uri::interpretRequest());

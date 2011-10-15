@@ -24,9 +24,8 @@ class Site extends Object {
   static function buildSearch($search=array()) {
     $search = new Search('site', $search);
 
-    if ($v = $search->param('username')) {
-      $search->eq('site.username', $v);
-    }
+    if ($v = $search->param('username')) { $search->eq('site.username', $v); }
+    if ($v = $search->param('domain')) { $search->eq('site.domain', $v); }
 
     if ($v = $search->param('owner')) {
       $search->id('site.owner_id', $v, 'owner');

@@ -6,7 +6,9 @@ class Object {
 
   static function load($data) {
 
-    if (is_array($data)) {
+    if ($data === null) {
+      return null;
+    }elseif (is_array($data)) {
       $primary = static::dataPrimaryKey($data);
     }else{
       $primary = $data;

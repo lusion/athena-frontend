@@ -33,3 +33,28 @@ Connection::add('sql', function() {
   return new Db\Connection(Config::get('mysql'));
 });
 
+// @todo This should probably be moved
+function redirect($url, $done=True) {
+  if (headers_sent()) {
+    if (DEF('developer')) {
+      print 'Redirect to <a href="'.HTML($url).'">'.HTML($url).'</a>';
+    }else{
+  ?><script type="text/javascript">window.location.href="<?php echo ($url); ?>";</script>
+    <noscript><meta http-equiv="refresh" content="0;url=<?php echo ($url); ?>" /></noscript><?php
+    }
+  } else {
+          header('Location: '.($url));
+  }
+
+  print '<a href="'.($url).'">Redirecting...</a>';
+
+  if ($done) {
+    if (function_exists('done')) {
+      done();
+    }else{
+      Connection::commit();
+      exit(0);
+    }
+  }
+}
+
