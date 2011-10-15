@@ -9,9 +9,7 @@ class Layout {
     if (self::$header) return;
     self::$header = True;
 
-    if ($site = Site::current()) {
-      $sites = Site::search(array('owner' => $site->owner_id));
-    }
+    $site = Site::current();
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -33,99 +31,7 @@ class Layout {
 
 <div id="head">
 
-<?php if ($site) { ?>
-	<div class="help-menu" id="help" style="display:none">
-		<div class="wrap">
-			<h1>Help Center <a class="close" href="#close">Close</a></h1>
-			<div class="topics">
-				<div class="search">
-					<form action="#search" method="post">
-						<input type="text" name="help-search" value="" /> <input type="submit" value="Search" />
-					</form>
-				</div>
-				<div class="block">
-					<h3>Topic</h3>
-					<ol>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ol>
-				</div>
-				<div class="block">
-					<h3>Topic</h3>
-					<ol>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ol>
-				</div>
-				<div class="block">
-					<h3>Topic</h3>
-					<ol>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ol>
-				</div>
-				<div class="block">
-					<h3>Topic</h3>
-					<ol>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ol>
-				</div>
-				<div class="block">
-					<h3>Topic</h3>
-					<ol>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ol>
-				</div>
-				<div class="block">
-					<h3>Topic</h3>
-					<ol>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ol>
-				</div>
-			</div>
-			<div class="faq">
-				<h2>Frequently Asked Questions</h2>
-				<ul>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
-<?php } ?>
+<?php if ($site) { View::render('layout/help'); } ?>
 
 	<div class="branding-tile">
 		<div class="branding-image wrap">
@@ -138,68 +44,15 @@ class Layout {
         <div class="logo"><h1><a href="/site/<?php echo HTML($site->domain); ?>">&#160;</a></h1></div>
 <?php } ?>
 			</div>
+      <?php View::render('layout/domain-menu'); ?>
 
-			<div class="domain-menu">
-<?php /*if (isset($domain)): ?>
-				<h1><?php echo $domain; ?></h1>
-<?php endif;*/ ?>
-
-<?php if ($site) { ?>
-				<ol id="select-domain-js">
-<?php if (count($sites) == 1) { ?>
-					<li class="show current only"><a href="http://www.<?php echo $site->domain; ?>" target="_blank"><?php echo $site->domain; ?></a></li>
-<?php }else{ ?>
-					<li class="show current"><a href="/sites/<?php echo $site->domain; ?>"><?php echo $site->domain; ?></a></li>
-  <?php foreach ($sites as $otherSite) { if ($site == $otherSite) continue; ?>
-            <li class="hide"><a href="/sites/<?php echo $otherSite->domain; ?>"><?php echo $otherSite->domain; ?></a></li>
-  <?php } ?>
-<?php } ?>
-				</ol>
-<?php } ?>
-
-<?php /*if (isset($sites) && sizeof($sites) > 1): ?>
-				<select id="select-domain" name="domain">
-					<option value="">Select a domain</option>
-<?php foreach ($sites as $site): ?>
-					<option value="<?php echo $site; ?>"><?php echo $site; ?></option>
-<?php endforeach; ?>
-				</select>
-<?php endif;*/ ?>
-				<div class="clear"></div>
-
-			</div>
 
 		</div>
 	</div><!-- /.bar -->
 
-<?php if (0 && $site) { ?>
-	<div class="main-menu">
-		<div class="wrap">
-			<ul id="domain-dropdown">
-				<li class="icon-home"><a class="main" href="/sites/<?php echo $domain; ?>"><span></span></a></li>
-
-<?php foreach ($subMenu as $temp): ?>
-				<li class="<?php echo $temp['class']; ?>">
-					<a class="main" href="<?php echo $temp['link']; ?>"><span><?php echo $temp['title']; ?></span></a>
-<?php if (isset($temp['subs']) && sizeof($temp['subs']) > 0): ?>
-					<ul style="display:none">
-<?php $top = ' class="top"';
-      foreach ($temp['subs'] as $sub) {
-        print '<li><a href="'.$sub['link'].'"';
-        if (isset($sub['rel']) && $sub['rel'] == 'external') print ' target="_blank"';
-        print '><span'.$top.'>'.$sub['title'].'</span></a></li>';
-        $top = '';
-      }
-?>
-					</ul>
-<?php endif; ?>
-				</li>
-<?php endforeach; ?>
-			</ul>
-			<div class="clear"></div>
-		</div>
-	</div><!-- /#.main-menu -->
-<?php } ?>
+<?php if ($site) {
+  View::render('layout/menu');
+} ?>
 
 
 </div><!-- /#head -->
