@@ -19,6 +19,7 @@ class DataRow_DB extends DataRow {
    */
   public function __construct($class, $primary) {
     $data = Connection::open('sql')->selectSingle('* FROM '.SQL::table($class).' WHERE id='.SQL($primary));
+    $data = self::transformValues($class, $data);
     parent::__construct($class, $data);
   }
 

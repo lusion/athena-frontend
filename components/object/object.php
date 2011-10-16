@@ -30,6 +30,14 @@ class Object {
     }
   }
 
+  function __isset($var) {
+    switch ($var) {
+    case 'table': return True;
+    }
+
+    return isset($this->datarow->$var);
+  }
+
   /***
    * Code to calculate primary keys
    **/

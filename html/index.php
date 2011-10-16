@@ -14,3 +14,6 @@ if ($site = Site::load(Session::get('site-id'))) {
 
 // Load the view
 View::render(Uri::interpretRequest());
+
+// Include the footer if we had a header
+Layout::footer();

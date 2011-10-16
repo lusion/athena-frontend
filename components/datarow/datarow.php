@@ -46,6 +46,23 @@ abstract class DataRow {
 			$this->row[$k] = $v;
 		}
   }
+
+  /***
+   * Transformation functions
+   **/
+  static function transformValues($class, $data) {
+		foreach ($data as $k=>&$v) {
+      $type = isset($class::$COLUMNS[$k]['type']) ? $class::$COLUMNS[$k]['type'] : NULL;
+
+      if ($v === NULL) continue;
+
+      switch ($type) {
+      case 'date':
+        $v = Date\Immutable::load($v);
+      }
+    }
+    return $data;
+  }
 }
 //-----------------------------------------------------------------------------
 

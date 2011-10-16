@@ -76,6 +76,8 @@ foreach ($SQL->querySelect('SHOW TABLES') as $table) {
         throw new Exception('Could not find options for enum');
       }
       $columns[$k]['options'] = array_values($m[1]);
+    }elseif ($row['Type'] == 'timestamp') {
+      $columns[$k]['type'] = 'date';
     }
     $order[] = $k;
   }

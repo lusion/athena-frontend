@@ -663,6 +663,12 @@ class Date implements \Nullable {
     case 'when_short':
       return $this->whenShort();
 
+    case 'about_time_ago':
+      return $this->aboutTimeAgo();
+
+    case 'time_ago':
+      return $this->timeAgo();
+
 		// Standard units
 		case 'second':			return $this->_second;
 		case 'minute':			return $this->_minute;
@@ -872,9 +878,4 @@ class Date implements \Nullable {
 
 };
 
-###
-# Immutable
-class ImmutableDate extends Date {
-	function __set($var, $val) { throw new FatalException('Date is immutable', array('date'=>$this)); }
-}
 

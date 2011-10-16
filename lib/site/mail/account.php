@@ -9,8 +9,8 @@ class Site_Mail_Account extends Object {
     'password_crypt' => array('default' => NULL),
     'fname' => array('default' => ''),
     'lname' => array('default' => ''),
-    'updated' => array('default' => 'CURRENT_TIMESTAMP'),
-    'created' => array('default' => '0000-00-00 00:00:00')
+    'updated' => array('default' => 'CURRENT_TIMESTAMP', 'type' => 'date'),
+    'created' => array('default' => '0000-00-00 00:00:00', 'type' => 'date')
   );
 
   static function buildSearch($search=array()) {

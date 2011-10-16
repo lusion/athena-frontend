@@ -16,8 +16,8 @@ class Site extends Object {
     'suspended' => array('default' => '0'),
     'use_ssh' => array('default' => '0'),
     'use_ssl' => array('default' => '0'),
-    'updated' => array('default' => 'CURRENT_TIMESTAMP'),
-    'created' => array('default' => '0000-00-00 00:00:00')
+    'updated' => array('default' => 'CURRENT_TIMESTAMP', 'type' => 'date'),
+    'created' => array('default' => '0000-00-00 00:00:00', 'type' => 'date')
   );
   static $current = NULL;
 
