@@ -1,4 +1,5 @@
 <?php
+
 class Site_Mail_Account extends Object {
   static $COLUMNS = array(
     'id' => array('default' => NULL, 'type' => 'id'),
@@ -15,6 +16,8 @@ class Site_Mail_Account extends Object {
 
   static function buildSearch($search=array()) {
     $search = new Search('site_mail_account', $search);
+
+    if ($v = $search->param('site')) $search->id('site_id', $v, 'site');
 
     return $search;
   }

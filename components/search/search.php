@@ -110,7 +110,7 @@ class Search {
 
 		foreach ($search as $k=>$v) {
       if (is_int($k)) {
-        if (is_object($v)) $k = DataRow::class2table(get_class($v));
+        if (is_object($v)) $k = strtolower(get_class($v));
         else if (is_string($v) && empty($this->params['query'])) $k = 'query';
       }
       $this->params[$k] = $v;
@@ -373,7 +373,7 @@ class Search {
       $this->in($field,array_map(function($s) { return Reseller::load($s)->id; }, $s));
     }
   }
-  function check_params() {
+  function checkParams() {
     foreach ($this->params as $k=>$v) {
       if (empty($this->checked[$k]) && $k != 'orderby' && $k != 'limit' && $k != 'lock') {
         throw new UncheckedField($k, array('dbtable'=>$this->dbtable));
@@ -391,7 +391,7 @@ class Search {
 
   function executeIterator(&$paging = False) {
 		$SQL = Connection::open('sql');
-    if (!$this->check_params()) throw new FatalException();
+    if (!$this->checkParams()) throw new FatalException();
 		$orderby = $this->param('orderby');
 
     $query = '`'.$this->dbtable.'`.*';
@@ -423,18 +423,18 @@ class Search {
 
 	function exists() {
 		$SQL = Connection::open('sql');
-    if (!$this->check_params()) throw new FatalException();
+    if (!$this->checkParams()) throw new FatalException();
 		return !!($SQL->exists($this->sql_from.' WHERE '.$this->getSQLWhere()));
 	}
 	function count() {
 		$SQL = Connection::open('sql');
-    if (!$this->check_params()) throw new FatalException();
+    if (!$this->checkParams()) throw new FatalException();
 		return intval($SQL->getSingle('count(*) FROM '.$this->sql_from.' WHERE '.$this->getSQLWhere()));
 	}
 	function execute(&$paging = False) {
 		$SQL = Connection::open('sql');
 		
-    if (!$this->check_params()) throw new FatalException();
+    if (!$this->checkParams()) throw new FatalException();
 		$objects = array();
 		$dbtable = $this->dbtable;
 

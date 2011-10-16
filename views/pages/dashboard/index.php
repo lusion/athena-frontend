@@ -16,8 +16,8 @@ $blocks = array(
   'email' => array(
     'caption' => 'Email',
     'links' => array(
-      '/mail-accounts' => 'File Manager',
-      '/mail-aliases' => 'Subdomains',
+      '/mail-accounts' => 'Accounts',
+      '/mail-aliases' => 'Forwarders',
       'http://'.$site->domain.'/webmail/' => 'Webmail'
     )
   ),
@@ -65,7 +65,7 @@ $blocks = array(
 		</div>
 
 		<div class="section usage column column-side">
-      <?php View::render('dashboard/statistics'); ?>
+      <?php View::display('dashboard/statistics', 'views/pages'); ?>
 		</div>
 
 	</div>

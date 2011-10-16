@@ -4,7 +4,7 @@ $site = Site::current();
 
 print '<div id="json-wrap">';
 
-$dialog = new Dialog('mail-accounts', 'Add Mail Account');
+$dialog = new Dialog('add-mail-account', 'Add Mail Account', 'Add account');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -38,22 +38,17 @@ $dialog->header();
   $dialog->footer();
 
 Section::render(array(
-  'name' => 'mail-accounts',
   'title' => 'Mail Accounts',
   'quota-limit' => NULL, 'quota-total' => NULL,
-  'add-caption' => 'Add Mail Account',
-  'items' => Site_Mail_Account::search(),
+  'items' => Site_Mail_Account::search($site),
   'headers' => array(
     '$item->firstname $item->surname' => 'Name',
     '$item->username@$site->domain' => 'Email Address',
     '$item->created->time_ago' => 'Created'
   ),
-  'empty-message' => 'There are currently no mail accounts for this domain.',
-  'actions' => array(
-    'delete' => 'Delete Selected'
-  ), 'buttons' => array(
-    'add' => 'Add Mail Account'
-  )
+  'empty-message' => 'There are currently no mail accounts for this site.',
+  'actions' => array('delete' => 'Delete Selected'),
+  'dialogs' => array('add-mail-account' => 'Add Mail Account'),
 ));
 ?>
   

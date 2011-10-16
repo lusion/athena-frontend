@@ -31,7 +31,7 @@ class Layout {
 
 <div id="head">
 
-<?php if ($site) { View::render('layout/help'); } ?>
+<?php if ($site) { View::display('layout/help'); } ?>
 
 	<div class="branding-tile">
 		<div class="branding-image wrap">
@@ -44,14 +44,14 @@ class Layout {
         <div class="logo"><h1><a href="/site/<?php echo HTML($site->domain); ?>">&#160;</a></h1></div>
 <?php } ?>
 			</div>
-      <?php View::render('layout/domain-menu'); ?>
+      <?php View::display('layout/domain-menu'); ?>
 
 
 		</div>
 	</div><!-- /.bar -->
 
 <?php if ($site) {
-  View::render('layout/menu');
+  View::display('layout/menu');
 } ?>
 
 

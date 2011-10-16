@@ -22,3 +22,9 @@ RENAME TABLE `sites_sub_domains_redirects` TO `site_sub_domain_redirect`;
 RENAME TABLE `sites_mail_aliases` TO `site_mail_alias`;
 RENAME TABLE `server_ip_addresses` TO `server_ip_address`;
 
+ALTER TABLE `site` ADD `client_id` INT UNSIGNED NOT NULL AFTER `id` ,
+ADD `reseller_id` INT UNSIGNED NOT NULL AFTER `client_id`;
+
+DROP TABLE `owner` 
+
+

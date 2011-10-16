@@ -39,7 +39,7 @@ $subMenu = array(
 <div class="main-menu">
   <div class="wrap">
     <ul id="domain-dropdown">
-      <li class="icon-home"><a class="main" href="/sites/<?php echo $site->domain; ?>"><span></span></a></li>
+      <li class="icon-home"><a class="main" href="/site/<?php echo $site->domain; ?>"><span></span></a></li>
 
 <?php foreach ($subMenu as $temp) { ?>
       <li class="<?php echo $temp['class']; ?>">

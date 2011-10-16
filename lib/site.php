@@ -3,7 +3,8 @@
 class Site extends Object {
   static $COLUMNS = array(
     'id' => array('default' => NULL, 'type' => 'id'),
-    'owner_id' => array('default' => NULL, 'type' => 'id'),
+    'client_id' => array('default' => NULL, 'type' => 'id'),
+    'reseller_id' => array('default' => NULL, 'type' => 'id'),
     'server_id' => array('default' => NULL, 'type' => 'id'),
     'state' => array('default' => 'active', 'options' => array('pending', 'upgrade', 'active')),
     'server_uid' => array('default' => '0'),
@@ -24,18 +25,45 @@ class Site extends Object {
   static function buildSearch($search=array()) {
     $search = new Search('site', $search);
 
+    if ($v = $search->param('id')) { $search->eq('site.id', $v); }
+
     if ($v = $search->param('username')) { $search->eq('site.username', $v); }
     if ($v = $search->param('domain')) { $search->eq('site.domain', $v); }
 
-    if ($v = $search->param('owner')) {
-      $search->id('site.owner_id', $v, 'owner');
-    }
+    if ($v = $search->param('client_id')) $search->eq('site.client_id', $v);
+    if ($v = $search->param('reseller_id')) $search->eq('site.reseller_id', $v);
 
     return $search;
   }
 
+  static function sessionSearchOptions() {
+    if ($site_id = Session::get('site_id')) {
+      return array('id'=>$site_id);
+    }elseif ($client_xid = Session::get('client_xid')) {
+      list($client_id, $reseller_id) = Xid::decode($client_xid);
+      return array('client_id'=>$client_id, 'reseller_id'=>$reseller_id);
+    }elseif ($reseller_id = Session::get('client_xid')) {
+      return array('reseller_id'=>$reseller_id);
+    }else{
+      return array('id'=>0);
+    }
+  }
+
   static function current() {
     return self::$current;
+  }
+
+  function checkSessionAccess() {
+    if ($site_id = Session::get('site_id')) {
+      return ($this->id == $site_id);
+    }elseif ($client_xid = Session::get('client_xid')) {
+      list($client_id, $reseller_id) = Xid::decode($client_xid);
+      return ($this->client_id == $client_id && $this->reseller_id == $reseller_id);
+    }elseif ($reseller_id = Session::get('client_xid')) {
+      return ($this->reseller_id == $reseller_id);
+    }else{
+      return False;
+    }
   }
 
   function makeActive() {

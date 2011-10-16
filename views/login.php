@@ -3,8 +3,8 @@
 if ($username = POST('username')) {
   if ($site = Site::searchSingle(array('username'=>$username))) {
     $site->makeActive();
-    Session::update(array(
-      'site-id' => $site->id
+    Session::open(array(
+      'site_id' => $site->id
     ));
     redirect('/dashboard');
     return;

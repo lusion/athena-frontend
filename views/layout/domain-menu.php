@@ -1,7 +1,7 @@
 <div class="domain-menu">
 <?php
 if ($site = Site::current()) {
-  $sites = Site::search(array('owner' => $site->owner_id));
+  $sites = Site::search(Site::sessionSearchOptions());
   print '<ol id="select-domain-js">';
   if (count($sites) == 1) {
     print '<li class="show current only"><a href="http://www.'.$site->domain.'" target="_blank">'.$site->domain.'</a></li>';

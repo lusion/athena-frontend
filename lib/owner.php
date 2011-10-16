@@ -9,5 +9,8 @@ class Owner extends Object {
     'created' => array('default' => '0000-00-00 00:00:00', 'type' => 'date')
   );
 
+  static function current() {
+    return self::$current;
+  }
 }
 

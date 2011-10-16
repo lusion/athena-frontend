@@ -5,9 +5,12 @@ class Object {
   private $datarow = null;
 
   static function load($data) {
+    $class = get_called_class();
 
     if ($data === null) {
       return null;
+    }elseif ($data instanceof $class) {
+      return $data;
     }elseif (is_array($data)) {
       $primary = static::dataPrimaryKey($data);
     }else{
@@ -15,7 +18,7 @@ class Object {
       $data = null;
     }
 
-    return ObjectFactory::get(get_called_class(), $primary, $data);
+    return ObjectFactory::get($class, $primary, $data);
   }
 
   function __construct($datarow) {

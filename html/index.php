@@ -6,14 +6,10 @@ $host = explode('.', $_SERVER['HTTP_HOST']);
 define('account_username', $host[0]);
 
 // Check the current session
-Session::load();
-
-if ($site = Site::load(Session::get('site-id'))) {
-  $site->makeActive();
-}
+Session::start();
 
 // Load the view
-View::render(Uri::interpretRequest());
+View::find(Uri::interpretRequest())->render();
 
 // Include the footer if we had a header
 Layout::footer();

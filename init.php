@@ -6,7 +6,7 @@ require 'config.php';
 
 Autoload::addPath('components');
 Autoload::addPath('layout');
-Autoload::addPath('lib');
+Autoload::addPath('lib', array('\\'));
 
 Autoload::preload(array('debug', 'http', 'backtrace', 'view', 'mixpanel'));
 
@@ -20,7 +20,7 @@ ExceptionHandler::setup(function($exception) {
 
   Debug::logException($exception);
 
-  View::render('error');
+  View::display('error');
 
   Layout::footer();
 });

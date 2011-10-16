@@ -2,7 +2,17 @@
 
 class View {
 
-  static function load($uri, $path='views') {
+  function __construct($path, $extra) {
+    $this->path = $path;
+    $this->extra = $extra;
+  }
+
+  function render() {
+    $extra = $this->extra;
+    require $this->path;
+  }
+
+  static function find($uri, $path='views') {
     $uri = Uri::split($uri);
 
     $path .= '/';
@@ -13,28 +23,29 @@ class View {
 
       if (file_exists($path . $extra[0].'.php')) {
         $filename = array_shift($extra);
-        require $path . $filename .'.php';
-        return True;
+        return new View($path . $filename .'.php', $extra);
       }elseif (is_dir($path . $extra[0])) {
         $path .= array_shift($extra).'/';
         continue;
       }elseif (file_exists($path . 'index.php')) {
-        require $path . 'index.php';
-        return True;
+        return new View($path . 'index.php', $extra);
       }else{
         break;
       }
     }
 
     if (file_exists($path . 'index.php')) {
-      require $path . 'index.php';
-      return True;
+      return new View($path . 'index.php', $extra);
     }
 
-		throw new Exception('Could not find view: '.implode('/', $uri).' in '.$path);
+    return NULL;
   }
 
-  static function render($uri, $path='views') {
-    self::load($uri, $path);
+  static function display($uri, $path='views') {
+    if ($view = self::find($uri, $path)) {
+      $view->render();
+    }else{
+      throw new Exception('Could not find view: '.implode('/', $uri).' in '.$path);
+    }
   }
 }

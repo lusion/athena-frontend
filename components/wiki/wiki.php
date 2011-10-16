@@ -46,6 +46,7 @@ function dollars_match($match, &$assign, $html=False) {
             /*fall through*/
           // standard functions
           case 'u2s': case 'strtoupper': case 'strtolower':
+          case 'bytesize':
             $item = $fn($item); break;
           // transform to lower first
           case 'ucwords': case 'ucfirst':
