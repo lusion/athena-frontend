@@ -14,28 +14,35 @@ class Section {
 
     $block->header();
 
-    if ($items = ARR($options, 'items')) {
-      $table = new Table(ARR($options, 'headers'), array(
-        'checkable' => 'accounts'
-      ));
+    if ($headers = ARR($options, 'headers')) {
+      if ($items = ARR($options, 'items')) {
+        $table = new Table($headers, array(
+          'checkable' => 'accounts'
+        ));
 
-      print '<form method="post" action="/site/<?php echo HTML($site->domain); ?>/mail-accounts">';
+        print '<form method="post" action="/site/<?php echo HTML($site->domain); ?>/mail-accounts">';
 
-      $table->header();
-      foreach ($items as $item) {
-        $table->row(array('item' => $item, 'site' => $site));
+        $table->header();
+        foreach ($items as $item) {
+          $table->row(array('item' => $item, 'site' => $site));
+        }
+        $table->footer();
+        print '</form>';
+
+        if ($actions = ARR($options, 'actions')) {
+          $block->actions($actions);
+        }
+      }else{
+        print '<div class="no-records">';
+        print HTML(ARR($options, 'empty-message', 'There are currently no items for this site.'));
+        print '</div>';
       }
-      $table->footer();
-      print '</form>';
-
-      if ($actions = ARR($options, 'actions')) {
-        $block->actions($actions);
-      }
-    }else{
-      print '<div class="no-records">';
-      print HTML(ARR($options, 'empty-message', 'There are currently no items for this site.'));
-      print '</div>';
     }
+
+    if ($content = ARR($options, 'content')) {
+      print HTML($content);
+    }
+
     $block->footer();
 
 /*

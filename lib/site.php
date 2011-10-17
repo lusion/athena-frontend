@@ -40,12 +40,12 @@ class Site extends Object {
     if ($site_id = Session::get('site_id')) {
       return array('id'=>$site_id);
     }elseif ($client_xid = Session::get('client_xid')) {
-      list($client_id, $reseller_id) = Xid::decode($client_xid);
+      list($reseller_id, $client_id) = Xid::decode($client_xid);
       return array('client_id'=>$client_id, 'reseller_id'=>$reseller_id);
-    }elseif ($reseller_id = Session::get('client_xid')) {
+    }elseif ($reseller_id = Session::get('reseller_id')) {
       return array('reseller_id'=>$reseller_id);
     }else{
-      return array('id'=>0);
+      return False;
     }
   }
 
@@ -53,13 +53,37 @@ class Site extends Object {
     return self::$current;
   }
 
+  function getFileManagerURL() {
+		// Create a signed key
+		$key = $this->username.':'.time();
+		$key .= ':' . OpenSSL::sign($key);
+
+		// Base64-URL encode the key
+		$key = strtr(base64_encode($key), '+/', '-_');
+
+		// Put it all together for the file manager url
+		return (Request::isSecure() ? 'https' : 'http') . '://'.$this->username.'.'.Config::get('domain').'/ajaxplorer?hostdeploy-key='.$key.'&ignore_tests=true';
+  }
+
+  function getDomains() {
+    $domains = array($this->domain);
+    foreach (Site_Subdomain::searchIterator($this) as $subdomain) {
+      $domains[] = $subdomain->domain;
+    }
+    return $domains;
+  }
+
+  function getPaths() {
+    return array('/');
+  }
+
   function checkSessionAccess() {
     if ($site_id = Session::get('site_id')) {
       return ($this->id == $site_id);
     }elseif ($client_xid = Session::get('client_xid')) {
-      list($client_id, $reseller_id) = Xid::decode($client_xid);
+      list($reseller_id, $client_id) = Xid::decode($client_xid);
       return ($this->client_id == $client_id && $this->reseller_id == $reseller_id);
-    }elseif ($reseller_id = Session::get('client_xid')) {
+    }elseif ($reseller_id = Session::get('reseller_id')) {
       return ($this->reseller_id == $reseller_id);
     }else{
       return False;

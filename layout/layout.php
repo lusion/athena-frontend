@@ -44,7 +44,7 @@ class Layout {
         <div class="logo"><h1><a href="/site/<?php echo HTML($site->domain); ?>">&#160;</a></h1></div>
 <?php } ?>
 			</div>
-      <?php View::display('layout/domain-menu'); ?>
+      <?php View::display('layout/site-choice'); ?>
 
 
 		</div>

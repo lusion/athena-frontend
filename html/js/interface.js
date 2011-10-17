@@ -310,61 +310,6 @@ var iface = (function() {
 
 $(document).ready(function() {
 
-    $('#select-domain').change(function(e) {
-        // TODO: check current window.location.href for #nav path
-        // - if they are on /sites/test.com/#mail they go to /sites/foo.com/#mail/
-
-        document.location.href = '/sites/' + $(this).val();
-        $(this).val('');
-    });
-
-    $('#select-domain-js').disableSelection();
-    $('li, li a', $('#select-domain-js')).disableSelection();
-
-    var currentPage = function() {
-      var url = window.location.href.split('/');
-      while (url[0] != 'sites' && url.length) url.shift();
-      if (url.length > 1) {
-        url.shift(); url.shift();
-        return url.join('/');
-      }else return '';
-    };
-
-    $('#select-domain-js li a')
-      .click(function(e) {
-        if ($(this).attr('target') != '_blank') {
-          e.preventDefault();
-          return false;
-        }
-      })
-      .mousedown(function(e) {
-        $('#select-domain-js').toggleClass('expanded');
-
-        if (!$(this).parent().hasClass('current'))
-        window.location.href = $(this).attr('href')+'/'+currentPage();
-
-        e.preventDefault();
-        return false;
-      })
-      .mouseup(function(e) {
-        if (!$(this).parent().hasClass('show')) {
-          $('#select-domain-js').removeClass('expanded');
-          window.location.href = $(this).attr('href')+'/'+currentPage();
-        }
-
-        $(this).parent().removeClass('hover');
-
-        e.preventDefault();
-        return false;
-      })
-      .mouseover(function(e) {
-        $(this).parent().addClass('hover');
-      })
-      .mouseout(function(e) {
-        $(this).parent().removeClass('hover');
-      })
-      .disableSelection();
-
 
     /***
      * hashNav temporarily disabled

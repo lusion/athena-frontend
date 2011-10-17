@@ -88,17 +88,6 @@ body { font-family: Arial,Helvetica,Verdana,sans-serif; }
 #head div.main-menu ul#domain-dropdown li ul li a { display: block; }
 #head div.main-menu ul#domain-dropdown ul ul { top: 0; }
 
-#head div.domain-menu { position: relative; font-size: 16px; }
-
-#head div.domain-menu ol { top: 18px; right: 0; width: 250px; overflow: hidden; margin: 0; padding: 0; z-index: 1003; position: absolute; }
-#head div.domain-menu ol li { overflow: hidden; margin: 0; padding: 0; }
-#head div.domain-menu ol li.hide { display: none; }
-#head div.domain-menu ol li.show { display: block; overflow: visible; }
-
-#head div.domain-menu ol li a { display: block; padding: 0px 40px 0 10px; margin: 0; text-decoration: none; line-height: 1.9em; }
-#head div.domain-menu ol.expanded li.hide { display: block; }
-
-
 .overview div.block { font-size: 12px; float: left; width: 190px; height: 160px; margin-right: 13px; margin-bottom: 13px; }
 .overview div.block h3 { font-weight: bold; padding-bottom: 10px; }
 .overview div.block ol { margin: 0; }
@@ -140,57 +129,6 @@ body { font-family: Arial,Helvetica,Verdana,sans-serif; }
 .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
 
 #dialogs {}
-
-/***
- * Dialog layout
- **/
-.dialog { font-size: 12px; margin: 0 auto; z-index: 1003; }
-.dialog { position: absolute; top: 100px; left: 100px; width: 400px; }
-.dialog .header { cursor: move; padding: 0 10px; line-height: 35px; text-align: left; }
-.dialog .content { margin: 0; padding: 4px 8px 0 8px; }
-.dialog .footer { padding: 8px; text-align: left; }
-.dialog .footer .button-action { margin-left: 5px; }
-
-fieldset { margin: 0; text-align: left; }
-fieldset p { margin: 0 }
-
-fieldset label { display: block; font-size: 0.9em; font-weight: bold; margin-top: 3px; padding: 2px 0 2px 2px; }
-
-fieldset .checkbox { line-height: 22px; vertical-align: middle; }
-fieldset .checkbox input { padding: 0; margin: 0; }
-fieldset .checkbox label { display: inline; vertical-align: middle; font-weight: normal; padding: 0; margin: 1px 0 0 0; }
-
-fieldset ol { margin: 0; padding: 0 0 0 0; list-style: none; }
-fieldset ol li { margin: 0; padding: 0; list-style: none }
-fieldset li.last { padding-bottom: 0.5em }
-fieldset ol, fieldset.simple p { margin: 0; }
-fieldset input[type="submit"] { margin-bottom: 0.8em }
-fieldset ol, fieldset.vertical ol li { margin-bottom: 0 }
-fieldset ol li:last-child { border-bottom: none }
-
-fieldset select, fieldset input, fieldset textarea { padding: 3px; border: 1px solid #cccccc; font-size: 11px; }
-fieldset input, fieldset textarea { width: 180px; }
-fieldset input.button-action, fieldset input.checkbox { width: auto; }
-fieldset input.button-action { margin: 8px 0; }
-fieldset a.action-secondary { margin-left: 5px; text-decoration: none; font-size: 0.9em; }
-
-.dialog a.help { width: 16px; height: 16px; cursor: help; display: inline-block; vertical-align: middle; line-height: 22px; background: url("/src/img/tip.png"); }
-
-.dialog .header .controls { float: right; line-height: 35px; display: block; }
-.dialog .header .controls a { text-decoration: none; vertical-align: middle; text-align: center; display: inline-block; text-decoration: none; }
-
-.dialog li { padding: 0; }
-.dialog span.domain-username input[type="text"] { width: 100px; }
-.dialog .errors { color: red; }
-.dialog .errors ol { border: 1px solid #f00; background-color: #fdd; padding: 4px; margin: 0 0 5px 0; }
-.dialog .errors ol li { list-style: none; }
-
-.dialog label { }
-.dialog table.layout td.right, .dialog table.layout th.right { padding-left: 3px; }
-.dialog table.layout td {vertical-align: middle; }
-.dialog li.automatic a { text-decoration: none; }
-
-.dialog .automatic .preview { padding: 4px 0 2px 2px; opacity: 0.7; }
 
 /* skeleton page */
 #skeleton-page {

@@ -2,6 +2,8 @@
 header('Content-type: text/css');
 foreach (array(
   'screen.css',
+  'site-choice.css',
+  'dialog.css',
   'rounded.css',
   'backtrace.css'
 ) as $css) {

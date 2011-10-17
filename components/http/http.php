@@ -22,7 +22,7 @@ class HTTP {
     if (isset($options['post'])) {
       if (is_array($options['post'])) {
         $str = '';
-        foreach ($post as $k=>$v) { 
+        foreach ($options['post'] as $k=>$v) { 
           if ($v === NULL) continue;
           $str .= ($str?'&':'').$k.'='.URL($v); 
         }

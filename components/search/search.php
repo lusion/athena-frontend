@@ -100,7 +100,10 @@ class Search {
 	// Constructor
 	function __construct($dbtable, $search, $primary='id') {
 		$SQL = Connection::open('sql');
-    if (!is_array($search)) $search = array($search);
+
+    if (!is_array($search)) {
+      $search = array($search);
+    }
 
     $this->primary = $primary;
 		$this->dbtable = $dbtable;
@@ -111,7 +114,10 @@ class Search {
 		foreach ($search as $k=>$v) {
       if (is_int($k)) {
         if (is_object($v)) $k = strtolower(get_class($v));
-        else if (is_string($v) && empty($this->params['query'])) $k = 'query';
+        elseif (is_string($v) && empty($this->params['query'])) $k = 'query';
+        elseif ($v === False) {
+          $this->and_0();
+        }
       }
       $this->params[$k] = $v;
 		}
