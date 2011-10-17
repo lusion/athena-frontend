@@ -2,9 +2,7 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
-$dialog = new Dialog('add-database', 'Add Database', 'Create database');
+$dialog = new Dialog('add-database', '/databases', 'Add Database', 'Create database');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -35,4 +33,3 @@ Section::render(array(
   'dialogs' => array('add-database' => 'Add Database'),
 ));
 
-print '</div>';

@@ -2,8 +2,6 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
 Section::render(array(
   'title' => 'Backups',
   'quota-limit' => NULL, 'quota-total' => NULL,
@@ -18,4 +16,3 @@ Section::render(array(
   'dialogs' => array('add-database' => 'Backup Now'),
 ));
 
-print '</div>';

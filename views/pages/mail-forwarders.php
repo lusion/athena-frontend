@@ -2,9 +2,7 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
-$dialog = new Dialog('add-mail-forwarder', 'Add Mail Forwarder', 'Add forwarder');
+$dialog = new Dialog('add-mail-forwarder', '/mail-forwarders', 'Add Mail Forwarder', 'Add forwarder');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -36,4 +34,3 @@ Section::render(array(
   'dialogs' => array('add-mail-forwarder' => 'Add Mail Forwarder'),
 ));
 
-print '</div>';

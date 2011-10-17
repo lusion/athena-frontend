@@ -3,8 +3,6 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
 Section::render(array(
   'title' => 'File Manager',
   'content' => new HTML(
@@ -12,4 +10,3 @@ Section::render(array(
   )
 ));
 
-print '</div>';

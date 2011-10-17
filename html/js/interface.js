@@ -174,8 +174,8 @@ function setupLiveHandlers()
 {
     var formAction = null;
 
-    // live calls
-    $('#json-wrap form').live('submit', function(event) {
+    // live calls (only in dialogs for now)
+    if (0) $('#json-wrap form').live('submit', function(event) {
         if ($(this).hasClass('skip-json-submit')) return;
 
         try {

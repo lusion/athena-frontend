@@ -36,5 +36,20 @@ class Site_Application extends Object {
     return parent::__isset($var);
   }
 
+	static function getAvailableApps()
+	{
+		return array(
+			'wordpress' => array(
+				'title' => 'Wordpress',
+				'icon' => 'wordpress.png'
+			),
+			'joomla' => array(
+				'title' => 'Joomla',
+				'icon' => 'joomla.png'
+			),
+
+		);
+	}
+
 }
 

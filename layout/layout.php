@@ -4,10 +4,28 @@ class Layout {
   static $title = 'Control panel';
   private static $header = False;
   private static $footer = False;
+  private static $json = False;
+  private static $result = array();
+
+  static function result($result) {
+    self::$result = $result;
+  }
+  static function success() {
+    self::result(array('status'=>'success'));
+  }
+  static function errors($errors) {
+    self::result(array('status' => 'error', 'errors' => $errors));
+  }
 
   static function header() {
     if (self::$header) return;
     self::$header = True;
+    self::$json = POST('json');
+
+    if (self::$json) {
+      header('X-JSON-Result: '.JSON(self::$result));
+      return;
+    }
 
     $site = Site::current();
 
@@ -60,6 +78,7 @@ class Layout {
 <div id="main">
 	<div class="wrap">
 		<div class="columns">
+      <div id="json-wrap">
 
   <?php
   }
@@ -67,8 +86,11 @@ class Layout {
   static function footer() {
     if (!self::$header || self::$footer) return;
     self::$footer = True;
+
+    if (self::$json) return;
 ?>
 
+      </div>
 			<div class="clear"></div>
 		</div>
 	</div>

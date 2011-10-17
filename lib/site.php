@@ -73,8 +73,18 @@ class Site extends Object {
     return $domains;
   }
 
-  function getPaths() {
-    return array('/');
+  function getPaths($options=array()) {
+    $paths = array();
+
+    $live = ARR($options, 'live', False);
+
+    if (!$live) $paths[] = '/';
+
+    foreach ($this->getDomains() as $domain) {
+      $paths[] = '/sites/'.$domain;
+    }
+
+    return $paths;
   }
 
   function checkSessionAccess() {

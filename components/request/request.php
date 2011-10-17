@@ -6,4 +6,7 @@ class Request {
       return True;
     }else return False;
   }
+  static function isPost() {
+    return ($_SERVER['REQUEST_METHOD'] == 'POST');
+  }
 }

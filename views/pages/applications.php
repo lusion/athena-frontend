@@ -2,9 +2,7 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
-$dialog = new Dialog('install-application', 'Install Application', 'Install app');
+$dialog = new Dialog('install-application', '/applications', 'Install Application', 'Install app');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -12,23 +10,19 @@ $dialog->header();
 						<li>
 							<label for="application-name">Application:</label>
 							<select id="application-name" name="application">
-<?php if (isset($applications->{'available-apps'})) foreach ($applications->{'available-apps'} as $app => $info): ?>
-								<option value="<?php echo $app; ?>"><?php echo $info['title']; ?></option>
-<?php endforeach; ?>
+              <?php foreach (Site_Application::getAvailableApps() as $app => $info) {
+                print '<option value="'.$app.'">'.$info['title'].'</option>';
+              } ?>
 							</select>
 						</li>
 						<li>
 							<label for="application-domain">Path:</label>
 							<select id="application-domain" name="domain">
-<?php if (isset($applications->{'domains'})) foreach ($applications->{'domains'} as $d): ?>
-								<option value="<?php echo $d; ?>">/sites/<?php echo $d; ?></option>
-<?php endforeach; ?>
+<?php foreach ($site->getPaths(array('live'=>True)) as $path) {
+  print '<option value="'.$path.'">'.$path.'</option>';
+} ?>
 							</select>
 						</li>
-						<!-- <li>
-							<label for="application-path">Path:</label>
-							<input id="application-path" type="text" name="path" value="/" />
-						</li> -->
 						<li style="padding: 9px 0;">
 							<p><strong>NB:</strong> This will overwrite files, please make sure you have backed up your website before continuing.</p>
 						</li>
@@ -53,6 +47,4 @@ Section::render(array(
   'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('install-application' => 'Install Application'),
 ));
-
-print '</div>';
 

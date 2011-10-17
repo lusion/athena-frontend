@@ -1,4 +1,14 @@
 <?php
+
+if ($data = CSRF::data()) {
+  $action = $data['action'];
+  unset($data['action']);
+
+  Layout::result(
+    Master::post($action, $data)
+  );
+}
+
 if ($site = Site::searchSingle(array('domain'=>array_shift($extra)))) {
   if (!$site->checkSessionAccess()) {
     $site = NULL;

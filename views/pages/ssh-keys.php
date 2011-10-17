@@ -2,9 +2,7 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
-$dialog = new Dialog('add-ssh-key', 'Add SSH Key', 'Add key');
+$dialog = new Dialog('add-ssh-key', '/ssh-keys', 'Add SSH Key', 'Add key');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -36,4 +34,3 @@ Section::render(array(
   'dialogs' => array('add-ssh-key' => 'Add SSH Key'),
 ));
 
-print '</div>';

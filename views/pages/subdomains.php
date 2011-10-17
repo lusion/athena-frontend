@@ -2,9 +2,7 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
-$dialog = new Dialog('add-subdomain', 'Add Subdomain', 'Add subdomain');
+$dialog = new Dialog('add-subdomain', '/subdomains', 'Add Subdomain', 'Add subdomain');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -33,8 +31,3 @@ Section::render(array(
   'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('add-subdomain' => 'Add Subdomain'),
 ));
-?>
-  
-
-</div>
-

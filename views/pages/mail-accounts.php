@@ -2,9 +2,7 @@
 Layout::header();
 $site = Site::current();
 
-print '<div id="json-wrap">';
-
-$dialog = new Dialog('add-mail-account', 'Add Mail Account', 'Add account');
+$dialog = new Dialog('add-mail-account', '/mail-accounts', 'Add Mail Account', 'Add account');
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -50,7 +48,3 @@ Section::render(array(
   'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('add-mail-account' => 'Add Mail Account'),
 ));
-?>
-  
-
-</div>

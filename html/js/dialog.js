@@ -121,8 +121,8 @@ var dialog = (function($) {
               if (result != null && typeof(result) == 'object' && typeof(result['status']) != 'undefined') {
                 if (result['status'] == 'error') {
 
+                  var errors = [];
                   if (typeof(result['errors']) != 'undefined') {
-                    var errors = [];
                     for (err in result['errors'])
                     {
                       var $el = $(':input[name='+err+']');
@@ -133,16 +133,18 @@ var dialog = (function($) {
                         errors.push(result['errors'][err]);
                       }
                     }
-                    if (errors.length) {
-                      var $errors = $('<ol>');
-                      for (var k = 0; k < errors.length; k++) {
-                        $('<li>').text(errors[k]).appendTo($errors);
-                      }
-                      $('<div class="errors"></div>').empty().append($errors).prependTo($('div.content', form)).slideUp(0).slideDown();
-                    }
+                  }else if (result['error-message']) {
+                    errors.push(result['error-message']);
+                  }
+                  if (!errors.length) {
+                    errors.push('An unknown error occurred.');
                   }
 
-                  //alert('Show errors: ' + xhr.getResponseHeader('X-JSON-Result'));
+                  var $errors = $('<ol>');
+                  for (var k = 0; k < errors.length; k++) {
+                    $('<li>').text(errors[k]).appendTo($errors);
+                  }
+                  $('<div class="errors"></div>').empty().append($errors).prependTo($('div.content', form)).slideUp(0).slideDown();
                 } else {
                   $('div.errors', $('div.content', form)).remove();
                   self.close();
