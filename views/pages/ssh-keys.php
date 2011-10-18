@@ -3,6 +3,12 @@ Layout::header();
 $site = Site::current();
 
 $dialog = new Dialog('add-ssh-key', '/ssh-keys', 'Add SSH Key', 'Add key');
+$dialog = new Dialog(array(
+  'name'=>'add-ssh-key', 'action'=>'/ssh-keys',
+  'title'=>'Add SSH Key', 'primary'=>'Add key',
+  'data'=>array('action'=>'/ssh/keys/add', 'site-id'=>$site->id),
+  'post'=>array('title', 'key')
+));
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -21,6 +27,10 @@ $dialog->header();
 $dialog->footer();
 
 Section::render(array(
+  'action' => '/ssh-keys',
+  'data' => array('action' => '/ssh/keys/remove', 'site-id'=>$site->id),
+  'post' => array('id'),
+
   'title' => 'SSH Keys',
   'quota-limit' => NULL, 'quota-total' => NULL,
   'items' => Site_SSH_Key::search($site),

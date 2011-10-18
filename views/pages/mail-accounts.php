@@ -2,7 +2,13 @@
 Layout::header();
 $site = Site::current();
 
-$dialog = new Dialog('add-mail-account', '/mail-accounts', 'Add Mail Account', 'Add account');
+
+$dialog = new Dialog(array(
+  'name'=>'add-mail-account', 'action'=>'/mail-accounts',
+  'title'=>'Add Mail Account', 'primary'=>'Add account',
+  'data'=>array('action'=>'/mail/accounts/add', 'site-id'=>$site->id),
+  'post'=>array('username', 'password', 'welcome-cc', 'firstname', 'surname')
+));
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -36,6 +42,11 @@ $dialog->header();
   $dialog->footer();
 
 Section::render(array(
+  'actions' => array('delete' => 'Delete Selected'),
+  'action' => '/mail-accounts',
+  'data' => array('action' => '/mail/accounts/remove', 'site-id'=>$site->id),
+  'post' => array('id'),
+
   'title' => 'Mail Accounts',
   'quota-limit' => NULL, 'quota-total' => NULL,
   'items' => Site_Mail_Account::search($site),
@@ -45,6 +56,5 @@ Section::render(array(
     '$item->created->time_ago' => 'Created'
   ),
   'empty-message' => 'There are currently no mail accounts for this site.',
-  'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('add-mail-account' => 'Add Mail Account'),
 ));

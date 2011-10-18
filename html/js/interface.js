@@ -253,13 +253,11 @@ function setupLiveHandlers()
         else formAction = null;
     });
 
-    $('#json-wrap form input[type="checkbox"].select-all').live('click', function(event) {
-        try {
-            var checked = $(this).is(':checked');
-            $(this).parent().parent().parent().find('input[type="checkbox"]').each(function(el) {
-                if (!$(this).hasClass('select-all')) $(this).attr('checked', checked);
-            });
-        } catch (e) { alert(e); }
+    $('#main form input[type="checkbox"].select-all').live('click', function(event) {
+      var checked = $(this).is(':checked');
+      $(this).closest('table').find('tr').each(function() {
+        $('input[type="checkbox"]', this).first().attr('checked', checked);
+      });
     });
 
     /***

@@ -13,7 +13,7 @@ $(function() {
 
   var dropdown = $('#site-choice');
 
-  $('#site-choice').hover(function() {
+  $('#site-choice ol').hover(function() {
       dropdown.addClass('expanded');
   }, function() {
       dropdown.removeClass('expanded');

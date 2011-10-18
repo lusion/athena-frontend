@@ -35,4 +35,20 @@ ALTER TABLE `site` DROP `owner_id`;
 
 DROP TABLE `owner` 
 
+CREATE TABLE `database_server` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `data_center_id` smallint(5) unsigned NOT NULL,
+  `hostname` VARCHAR( 128 ) NOT NULL,
+  `active` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `available` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `servers_data_center_id` (`data_center_id`),
+  KEY `servers_active` (`active`),
+  KEY `servers_available` (`available`),
+  CONSTRAINT `database_server_data_center_id` FOREIGN KEY (`data_center_id`) REFERENCES `server_data_center` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `site` ADD `database_server_id` INT UNSIGNED NOT NULL AFTER `server_id`;
+ALTER TABLE `site` ADD CONSTRAINT `site_database_server_id` FOREIGN KEY (`database_server_id`) REFERENCES `database_server` (`id`);

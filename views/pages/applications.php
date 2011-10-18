@@ -3,6 +3,12 @@ Layout::header();
 $site = Site::current();
 
 $dialog = new Dialog('install-application', '/applications', 'Install Application', 'Install app');
+$dialog = new Dialog(array(
+  'name'=>'install-application', 'action'=>'/applications',
+  'title'=>'Install Application', 'primary'=>'Install app',
+  'data'=>array('action'=>'/applications/add', 'site-id'=>$site->id),
+  'post'=>array('application', 'path')
+));
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -16,8 +22,8 @@ $dialog->header();
 							</select>
 						</li>
 						<li>
-							<label for="application-domain">Path:</label>
-							<select id="application-domain" name="domain">
+							<label for="application-path">Path:</label>
+							<select id="application-path" name="path">
 <?php foreach ($site->getPaths(array('live'=>True)) as $path) {
   print '<option value="'.$path.'">'.$path.'</option>';
 } ?>

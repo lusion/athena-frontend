@@ -14,6 +14,8 @@ Config::write(array(
   'snapbill-domain' => 'snap',
   'snapbill-ssl' => False,
 
+  'developer' => True,
+
   'openssl' => array(
     'private-key'=>'
 -----BEGIN RSA PRIVATE KEY-----

@@ -6,6 +6,7 @@ class Site extends Object {
     'client_id' => array('default' => NULL, 'type' => 'id'),
     'reseller_id' => array('default' => NULL, 'type' => 'id'),
     'server_id' => array('default' => NULL, 'type' => 'id'),
+    'database_server_id' => array('default' => NULL, 'type' => 'id'),
     'state' => array('default' => 'active', 'options' => array('pending', 'upgrade', 'active')),
     'server_uid' => array('default' => '0'),
     'ip_address_id' => array('default' => NULL, 'type' => 'id'),

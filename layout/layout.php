@@ -4,8 +4,8 @@ class Layout {
   static $title = 'Control panel';
   private static $header = False;
   private static $footer = False;
+  private static $result = False;
   private static $json = False;
-  private static $result = array();
 
   static function result($result) {
     self::$result = $result;
@@ -81,13 +81,26 @@ class Layout {
       <div id="json-wrap">
 
   <?php
+    if (self::$result) {
+      if (self::$result['status'] != 'success') {
+        if (!$errors = ARR(self::$result, 'errors')) {
+          $errors = array(ARR(self::$result, 'error-message', 'An unknown error occurred.'));
+        }
+        print '<div class="errors"><ol>';
+        foreach ($errors as $error) print '<li>'.HTML($error).'</li>';
+        print '</ol></div>';
+      }
+    }
+
   }
 
   static function footer() {
     if (!self::$header || self::$footer) return;
     self::$footer = True;
 
-    if (self::$json) return;
+    if (self::$json) {
+      return;
+    }
 ?>
 
       </div>

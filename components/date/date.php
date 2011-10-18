@@ -823,7 +823,7 @@ class Date implements \Nullable {
     if ($diff < 0) { return 'in the future'; }
     elseif ($diff < 2) return 'a second ago';
 		else if ($diff < 10) return "$diff seconds ago";
-		elseif ($diff <= 90) {
+		elseif ($diff <= 60) {
 			$diff = max(5,$diff-$diff%5);
 			return "about $diff seconds ago";
 		}else if ($diff < 27*60) {

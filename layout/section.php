@@ -12,24 +12,29 @@ class Section {
       ));
     }
 
-    $block->header();
+    if ($action = ARR($options, 'action')) {
+      $action = '/site/'.$site->domain.$action;
+      print '<form method="post" action="'.HTML($action).'">';
+      CSRF::render($action, $options['data'], $options['post']);
+    }
 
+    $block->header();
+    $actions = ARR($options, 'actions');
     if ($headers = ARR($options, 'headers')) {
       if ($items = ARR($options, 'items')) {
         $table = new Table($headers, array(
-          'checkable' => 'accounts'
+          'checkable' => $actions ? 'id' : NULL
         ));
-
-        print '<form method="post" action="/site/<?php echo HTML($site->domain); ?>/mail-accounts">';
 
         $table->header();
         foreach ($items as $item) {
-          $table->row(array('item' => $item, 'site' => $site));
+          $table->row(array('item' => $item, 'site' => $site),
+                      array('id' => $item->id));
         }
         $table->footer();
         print '</form>';
 
-        if ($actions = ARR($options, 'actions')) {
+        if ($actions) {
           $block->actions($actions);
         }
       }else{
@@ -44,6 +49,10 @@ class Section {
     }
 
     $block->footer();
+
+    if ($action) {
+      print '</form>';
+    }
 
 /*
 <?php if (isset($pager) && $pager->pageCount > 1): ?>

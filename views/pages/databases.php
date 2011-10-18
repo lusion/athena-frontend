@@ -2,7 +2,12 @@
 Layout::header();
 $site = Site::current();
 
-$dialog = new Dialog('add-database', '/databases', 'Add Database', 'Create database');
+$dialog = new Dialog(array(
+  'name'=>'add-database', 'action'=>'/databases',
+  'title'=>'Add Database', 'primary'=>'Create database',
+  'data'=>array('action'=>'/mysql/databases/add', 'site-id'=>$site->id),
+  'post'=>array('name')
+));
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -17,6 +22,11 @@ $dialog->header();
 $dialog->footer();
 
 Section::render(array(
+  'actions' => array('delete' => 'Delete Selected'),
+  'action' => '/databases',
+  'data' => array('action' => '/mysql/databases/remove', 'site-id'=>$site->id),
+  'post' => array('id'),
+
   'title' => 'Databases',
   'quota-limit' => NULL, 'quota-total' => NULL,
   'items' => Database::search($site),
@@ -24,12 +34,11 @@ Section::render(array(
     '$item->name' => 'Name',
     '$item->tables' => 'Tables',
     '$item->rows' => 'Total Rows',
-    '$item->size(>bytesize)' => 'Total Rows',
-    '$item->destination' => 'Destination',
-    '$item->created->time_ago' => 'Created'
+    '$item->size(>bytesize)' => 'Disk Usage',
+    '$item->oldest->time_ago' => 'Created (oldest table)',
+    '$item->update->time_ago' => 'Last Updated'
   ),
   'empty-message' => 'There are currently no databases for this site.',
-  'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('add-database' => 'Add Database'),
 ));
 

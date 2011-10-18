@@ -2,7 +2,12 @@
 Layout::header();
 $site = Site::current();
 
-$dialog = new Dialog('add-subdomain', '/subdomains', 'Add Subdomain', 'Add subdomain');
+$dialog = new Dialog(array(
+  'name'=>'add-subdomain', 'action'=>'/subdomains',
+  'title'=>'Add Subdomain', 'primary'=>'Add subdomain',
+  'data'=>array('action'=>'/subdomains/add', 'site-id'=>$site->id),
+  'post'=>array('subdomain', 'parent')
+));
 $dialog->header();
 ?>
 				<fieldset class="vertical">
@@ -20,6 +25,11 @@ $dialog->header();
   $dialog->footer();
 
 Section::render(array(
+  'actions' => array('delete' => 'Delete Selected'),
+  'action' => '/subdomains',
+  'data' => array('action' => '/subdomains/remove', 'site-id'=>$site->id),
+  'post' => array('id'),
+
   'title' => 'Subdomains',
   'quota-limit' => NULL, 'quota-total' => NULL,
   'items' => Site_Subdomain::search($site),

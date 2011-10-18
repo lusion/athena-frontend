@@ -47,18 +47,21 @@ class Table {
       $classes[] = 'checkable';
     }
 
-    $checkable = ARR($this->options, 'checkable');
-
     print '<table'.html_attributes(array(
-      'id' => ARR($this->options,'id')
+      'id' => ARR($this->options,'id'),
+      'class' => $this->checkable ? 'checkable' : NULL
     )).'><thead><tr>';
 
-    if ($checkable) {
+    if ($this->checkable) {
       print '<th class="checkbox"><input class="select-all" type="checkbox" value="all" /></th>';
     }
 
+    $column = 0;
     foreach ($this->headers as $wiki => $opt) {
-      print '<th>'.HTML(ARR($opt, 'caption')).'</th>';
+      print '<th'.html_attributes(array(
+        'class' => $column==0 ? 'first' : NULL
+      )).'>'.HTML(ARR($opt, 'caption')).'</th>';
+      $column++;
     }
     print '</tr></thead><tbody>';
   }
@@ -68,12 +71,16 @@ class Table {
       'class' => array(ARR($rowopt, 'class'), $this->rownum & 1 ? 'alt' : NULL)
     )).' >';
 
-    if ($name = ARR($this->options, 'checkable')) {
-			print '<td class="checkbox"><input type="checkbox" name="'.HTML($name).'[]" value="'.HTML(ARR($rowopt, 'id')).'" /></td>';
+    if ($this->checkable) {
+			print '<td class="checkbox"><input type="checkbox" name="id[]" value="'.HTML(ARR($rowopt, 'id')).'" /></td>';
     }
 
+    $column = 0;
     foreach ($this->headers as $wiki => $opt) {
-      print '<td>'.Wiki::html($wiki, $data).'</td>';
+      print '<td'.html_attributes(array(
+        'class' => $column==0 ? 'first' : NULL
+      )).'>'.Wiki::html($wiki, $data).'</td>';
+      $column++;
     }
     print '</tr>';
 

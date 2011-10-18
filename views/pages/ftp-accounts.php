@@ -42,7 +42,12 @@ $dialog->header();
 $dialog->footer();
 
 Section::render(array(
-  'title' => 'FTP Accounts'.rand(),
+  'actions' => array('delete' => 'Delete Selected'),
+  'action' => '/ftp-accounts',
+  'data' => array('action' => '/ftp/accounts/remove', 'site-id'=>$site->id),
+  'post' => array('id'),
+
+  'title' => 'FTP Accounts',
   'quota-limit' => NULL, 'quota-total' => NULL,
   'items' => Site_FTP_Account::search($site),
   'headers' => array(
@@ -51,7 +56,6 @@ Section::render(array(
     '$item->created->time_ago' => 'Added',
   ),
   'empty-message' => 'There are currently no ftp accounts added to this site.',
-  'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('add-ftp-account' => 'Add Account'),
 ));
 

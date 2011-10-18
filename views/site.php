@@ -4,9 +4,16 @@ if ($data = CSRF::data()) {
   $action = $data['action'];
   unset($data['action']);
 
-  Layout::result(
-    Master::post($action, $data)
-  );
+  try {
+    $result = Master::post($action, $data);
+  } catch (Exception $e) {
+    $result = array(
+      'status' => 'error',
+      'error-message' => 'There was an error on our side while processing your request. Please try again later or contact the support team for assistance.'
+    );
+    Debug::logException($e);
+  }
+  Layout::result($result);
 }
 
 if ($site = Site::searchSingle(array('domain'=>array_shift($extra)))) {

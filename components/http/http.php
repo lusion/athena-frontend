@@ -21,12 +21,7 @@ class HTTP {
 
     if (isset($options['post'])) {
       if (is_array($options['post'])) {
-        $str = '';
-        foreach ($options['post'] as $k=>$v) { 
-          if ($v === NULL) continue;
-          $str .= ($str?'&':'').$k.'='.URL($v); 
-        }
-        $post = $str;
+        $post = http_build_query($options['post']);
       }else $post = $options['post'];
 
       $curlOptions[CURLOPT_POST] = 1;

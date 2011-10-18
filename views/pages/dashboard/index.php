@@ -38,9 +38,6 @@ $blocks = array(
   )
 );
 ?>
-<div id="json-wrap">
-	<div class="columns">
-
 		<div class="section overview column column-main">
 			<h1 class="title">Overview: <span class="plain"><?php echo $site->domain; ?></span></h1>
 
@@ -67,9 +64,5 @@ $blocks = array(
 		<div class="section usage column column-side">
       <?php View::display('dashboard/statistics', 'views/pages'); ?>
 		</div>
-
-	</div>
-
-</div>
 <?php
 Layout::footer();

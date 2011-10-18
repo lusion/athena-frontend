@@ -1,0 +1,23 @@
+.section { margin-top: 20px; text-align: left; }
+.section table { width: 100%; margin-bottom: 10px; }
+.section table tr .checkbox { width: 30px; text-align: center; }
+.section table tr th { font-weight: bold; line-height: 30px; padding: 0; }
+
+.section.login { margin: 20px auto 0 auto; width: 300px; }
+
+.section.usage { padding-top: 0;  }
+
+.section .menu ol { margin: 0; padding: 0; }
+.section .menu ol li { list-style: none; }
+.section .menu ol li a { display: block; font-size: 12px; padding: 20px; }
+
+
+.section h1.title { padding: 0 15px; }
+.section h1 .buttons { float: right; }
+.section h1 .buttons input { vertical-align: middle; }
+.section h1.title .quota { font-size: 11px; opacity: 0.8; margin-left: 10px; }
+.section table tr td { padding: 5px 0 5px 5px; }
+
+.section table tr th.first, .section table tr td.first { padding-left: 15px; } 
+
+.section table.checkable tr th.first, .section table.checkable tr td.first { padding-left: 5px; } 

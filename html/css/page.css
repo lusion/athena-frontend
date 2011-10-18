@@ -1,0 +1,4 @@
+.errors { margin: 10px 0 0 0; color: red; }
+.errors ol { border: 1px solid #f00; background-color: #fdd; padding: 4px; margin: 0 0 5px 0; }
+.errors ol li { list-style: none; }
+

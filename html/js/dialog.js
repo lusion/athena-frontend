@@ -152,7 +152,7 @@ var dialog = (function($) {
               }
 
               $(':input', form).attr('disabled', false);
-              $('#json-wrap').replaceWith(response);
+              $('#json-wrap').empty().append(response);
 			}
         });
 

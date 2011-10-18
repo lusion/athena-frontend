@@ -4,6 +4,8 @@ foreach (array(
   'screen.css',
   'site-choice.css',
   'dialog.css',
+  'section.css',
+  'page.css',
   'rounded.css',
   'backtrace.css'
 ) as $css) {

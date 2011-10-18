@@ -12,7 +12,6 @@ Section::render(array(
     '$item->state' => 'State',
   ),
   'empty-message' => 'There are currently no backups for this site.',
-  'actions' => array('delete' => 'Delete Selected'),
   'dialogs' => array('add-database' => 'Backup Now'),
 ));
 
