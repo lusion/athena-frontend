@@ -2,7 +2,6 @@
 Layout::header();
 $site = Site::current();
 
-$dialog = new Dialog('add-mail-forwarder', '/mail-forwarders', 'Add Mail Forwarder', 'Add forwarder');
 $dialog = new Dialog(array(
   'name'=>'add-mail-forwarder', 'action'=>'/mail-forwarders',
   'title'=>'Add Mail Forwarder', 'primary'=>'Add forwarder',

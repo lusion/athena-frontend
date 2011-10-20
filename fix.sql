@@ -52,3 +52,4 @@ CREATE TABLE `database_server` (
 
 ALTER TABLE `site` ADD `database_server_id` INT UNSIGNED NOT NULL AFTER `server_id`;
 ALTER TABLE `site` ADD CONSTRAINT `site_database_server_id` FOREIGN KEY (`database_server_id`) REFERENCES `database_server` (`id`);
+ALTER TABLE `server_data_center` ADD `mode` ENUM( 'aws', 'vps', 'dedicated' ) NOT NULL DEFAULT 'aws' AFTER `tag`;
