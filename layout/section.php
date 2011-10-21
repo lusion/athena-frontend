@@ -12,6 +12,10 @@ class Section {
       ));
     }
 
+    if ($class = ARR($options, 'class')) {
+      $block->addClass($class);
+    }
+
     if ($action = ARR($options, 'action')) {
       $action = '/site/'.$site->domain.$action;
       print '<form method="post" action="'.HTML($action).'">';

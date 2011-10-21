@@ -21,3 +21,7 @@
 .section table tr th.first, .section table tr td.first { padding-left: 15px; } 
 
 .section table.checkable tr th.first, .section table.checkable tr td.first { padding-left: 5px; } 
+
+/* special sections */
+.section.file-manager .container { padding: 0; }
+

@@ -4,10 +4,15 @@ class Block {
   private $heading;
   private $options;
   private $buttons=array();
+  private $class=array();
 
   function __construct($heading, $options=array()) {
     $this->heading = $heading;
     $this->options = $options;
+  }
+
+  function addClass($class) {
+    $this->class[] = $class;
   }
 
   function addButton($caption, $options=array()) {
@@ -17,8 +22,10 @@ class Block {
   function header() {
     Layout::header();
     $site = Site::current();
+    print '<div'.html_attributes(array(
+      'class' => array('section', $this->class),
+    )).'>';
 ?>
-	<div class="section">
 			<h1 class="title">
         <?php echo HTML($this->heading); ?>
         <em class="quota"><?php echo HTML(ARR($this->options, 'quota')); ?></span></em>
