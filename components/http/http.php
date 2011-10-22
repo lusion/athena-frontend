@@ -2,11 +2,18 @@
 
 class HTTP {
   static $curlOptions = array(
-    CURLOPT_CONNECTTIMEOUT => 1,
-    CURLOPT_TIMEOUT => 2,
+    CURLOPT_CONNECTTIMEOUT => 3,
+    CURLOPT_TIMEOUT => 5,
     CURLOPT_FRESH_CONNECT => 1,
-    CURLOPT_FORBID_REUSE => 1,
+    CURLOPT_FORBID_REUSE => 1
   );
+
+  static function setTimeout($timeout, $connectTimeout=False) {
+    if ($connectTimeout === False) $timeout = $connectTimeout;
+
+    self::$curlOptions[CURLOPT_TIMEOUT] = $timeout;
+    self::$curlOptions[CURLOPT_CONNECTTIMEOUT] = $timeout;
+  }
 
   static function request($url, $options) {
     // @note Can't use array merge because of integer keys

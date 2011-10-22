@@ -141,9 +141,6 @@ body { font-family: Arial,Helvetica,Verdana,sans-serif; }
   text-align: center;
 }
 
-/* special sections */
-.section.file-manager .container { padding: 0; }
-
 input.button-action { cursor: pointer; padding: 5px; font-size: 11px; }
 
 #lightbox-overlay { z-index: 500; opacity: 0.6; background-color: #000; display: none; position: absolute; left: 0; top: 0; }

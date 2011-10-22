@@ -16,6 +16,8 @@ Config::write(array(
 
   'developer' => True,
 
+  'timeout' => 5,
+
   'openssl' => array(
     'private-key'=>'
 -----BEGIN RSA PRIVATE KEY-----

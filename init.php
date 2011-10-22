@@ -25,6 +25,9 @@ ExceptionHandler::setup(function($exception) {
   Layout::footer();
 });
 
+// Set the global http timeout
+HTTP::setTimeout(Config::get('timeout'));
+
 // Set up correct encoding
 header('Content-Type: text/html; charset=UTF-8');
 
@@ -49,12 +52,7 @@ function redirect($url, $done=True) {
   print '<a href="'.($url).'">Redirecting...</a>';
 
   if ($done) {
-    if (function_exists('done')) {
-      done();
-    }else{
-      Connection::commit();
-      exit(0);
-    }
+    exit(0);
   }
 }
 
