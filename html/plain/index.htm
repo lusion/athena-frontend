@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>HostShield.net</title>
+<meta name="robots" content="noindex, nofollow">
+<style type="text/css">
+ body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+ }
+ #shield {
+   background: url('http://www.hostshield.net/shield.jpg') no-repeat 50% 50%;
+   height: 100%;
+   width: 100%;
+  }
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+ $(function() {
+  var x, y, $shield;
+  var k=0, strength = [50, 80, 150];
+  var bounce = function(strength) {
+   $shield.animate({'top': y-strength}, function() {
+     $shield.animate({'top': y+strength}, function() {
+       $shield.animate({'top': y});
+     });
+   });
+  };
+  $(window).resize(function() {
+   x = $(window).width()/2-320;
+   y = $(window).height()/2-240;
+   if (!$shield) {
+    $shield = $('#shield').css({'position': 'absolute', 'left': x, 'top': y, 'width': '640px', 'height': '480px'});
+   }else{
+    $shield.animate({'left': x, 'top': y}, {'queue': false});
+   }
+  }).resize();
+  $('body').click(function() { bounce.call(this,strength[(k++)%3]); });
+ });
+</script>
+</head>
+<body>
+ <div id="shield">
+  <!-- am9ic0Bob3N0ZGVwbG95LmNvbQ== -->
+
+  <!-- V2UncmUgYWx3YXlzIGxvb2tpbmcgZm9yIGN1cmlvdXMgZGV2ZWxvcGVycy4= -->
+  <!-- TGV0IHVzIGtub3c= -->
+ </div>
+</body>
+</html>
+
